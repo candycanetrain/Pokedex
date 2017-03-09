@@ -11,7 +11,7 @@ class PokemonIndex extends React.Component {
     return (
       <ul>
         {this.props.pokemon.map( (poke) => (
-          <li>{poke.name}<img src={poke.image_url} /></li>
+          <li>{poke.name}<img src={poke.image_url} height="200" /></li>
         ))}
        </ul>
     );
