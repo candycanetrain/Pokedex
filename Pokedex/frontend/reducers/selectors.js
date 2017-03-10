@@ -1,5 +1,11 @@
 import values from 'lodash/values';
-const selectAllPokemon = (state) => {
+export const selectAllPokemon = (state) => {
   return values(state.pokemon);
 };
-export default selectAllPokemon;
+
+export const selectPokemonItem = (state, itemId) => (
+
+  state.pokemonDetails.items.map((item) => (
+    [item.happiness, item.name, item.image_url, item.price ]
+  ))
+);
