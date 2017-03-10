@@ -1,6 +1,8 @@
 import * as APIUtil from '../util/api_util';
 
 export const RECEIVE_ALL_POKEMON = "RECEIVE_ALL_POKEMON";
+export const RECEIVE_POKE = "RECEIVE_POKE";
+
 
 export const receiveAllPokemon = pokemon => ({
   type: RECEIVE_ALL_POKEMON,
@@ -13,3 +15,12 @@ export const requestAllPokemon = () => (dispatch) => {
 };
 
 // store.dispatch(requestAllPokemont())
+export const receivePoke = poke => ({
+  type: RECEIVE_POKE,
+  poke
+});
+
+export const requestPoke = (id) => (dispatch) => {
+  return APIUtil.fetchPoke(id)
+    .then(poke => dispatch(receivePoke(poke)));
+};
